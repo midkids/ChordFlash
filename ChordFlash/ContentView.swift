@@ -26,7 +26,7 @@ struct ContentView: View {
         Chord(
             name: "A",
             fingering: ["x", "0", "2", "2", "2", "0"],
-            fingerNumbers: ["", "", "1", "2", "3", ""],
+            fingerNumbers: ["", "", "2", "1", "3", ""],
             notes: "A major"
         ),
         Chord(
@@ -38,7 +38,7 @@ struct ContentView: View {
         Chord(
             name: "A7",
             fingering: ["x", "0", "2", "0", "2", "0"],
-            fingerNumbers: ["", "", "2", "", "3", ""],
+            fingerNumbers: ["", "", "1", "", "2", ""],
             notes: "A dominant seventh"
         ),
         Chord(
@@ -48,10 +48,22 @@ struct ContentView: View {
             notes: "A minor"
         ),
         Chord(
+            name: "Bb",
+            fingering: ["x", "1", "3", "3", "3", "x"],
+            fingerNumbers: ["", "1", "3", "3", "3", ""],
+            notes: "B flat major"
+        ),
+        Chord(
             name: "B7",
             fingering: ["x", "2", "1", "2", "0", "2"],
             fingerNumbers: ["", "2", "1", "3", "", "4"],
             notes: "B dominant seventh"
+        ),
+        Chord(
+            name: "Bm",
+            fingering: ["x", "2", "4", "4", "3", "x"],
+            fingerNumbers: ["", "1", "3", "4", "2", ""],
+            notes: "B minor"
         ),
         Chord(
             name: "C",
