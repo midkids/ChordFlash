@@ -170,6 +170,22 @@ struct ChordTabView: View {
                 .font(.largeTitle.bold())
 
             VStack(alignment: .leading, spacing: 10) {
+                HStack(spacing: 10) {
+                    Text("String")
+                        .frame(width: 77, alignment: .leading)
+
+                    Text("Fret")
+                        .frame(width: 54, alignment: .leading)
+
+                    Text("Note")
+                        .frame(width: 38, alignment: .leading)
+
+                    Text("Finger")
+                        .frame(width: 48, alignment: .leading)
+                }
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.secondary)
+
                 ForEach(Array(zip(strings, zip(chord.fingering, zip(chord.stringNotes, chord.fingerNumbers)))), id: \.0) { stringName, chordInfo in
                     let fret = chordInfo.0
                     let note = chordInfo.1.0
@@ -178,7 +194,7 @@ struct ChordTabView: View {
                     HStack(spacing: 10) {
                         Text(stringName)
                             .font(.headline.monospaced())
-                            .frame(width: 24, alignment: .leading)
+                            .frame(width: 42, alignment: .leading)
 
                         Text("|--\(fret)--|")
                             .font(.title2.monospaced())
