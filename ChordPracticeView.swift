@@ -175,12 +175,12 @@ struct ChordTabView: View {
                         .frame(width: 77, alignment: .leading)
 
                     Text("Fret")
-                        .frame(width: 54, alignment: .leading)
-
-                    Text("Note")
-                        .frame(width: 38, alignment: .leading)
+                        .frame(width: 60, alignment: .leading)
 
                     Text("Finger")
+                        .frame(width: 84, alignment: .leading)
+
+                    Text("Note Played")
                         .frame(width: 48, alignment: .leading)
                 }
                 .font(.caption2.weight(.semibold))
@@ -199,16 +199,16 @@ struct ChordTabView: View {
                         Text("|--\(fret)--|")
                             .font(.title2.monospaced())
 
-                        Text(note)
-                            .font(.headline.weight(.semibold))
-                            .lineLimit(1)
-                            .frame(width: 32, alignment: .leading)
-
                         Text(finger.isEmpty ? "" : "finger \(finger)")
                             .font(.headline)
                             .lineLimit(1)
                             .minimumScaleFactor(0.8)
-                            .frame(minWidth: 88, alignment: .leading)
+                            .frame(minWidth: 110, alignment: .leading)
+                        
+                        Text(note)
+                            .font(.headline.weight(.semibold))
+                            .lineLimit(1)
+                            .frame(width: 32, alignment: .leading)
                     }
                 }
             }
