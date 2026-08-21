@@ -4,6 +4,24 @@
 //
 //  Created by Myron Snelson on 8/2/26.
 //
+// Future Improvements:
+// 1. Create a mastery screen with an option off
+//    ContentView
+// 2. In Mastery, show random chords but keep track
+//    of the chords shown and allow the
+//    user to indicate whether or not they know a chord
+//    and then do not show that chord any longer
+//    in that session
+// 3. Create a settings screen that allows the user to
+//    customize the behavior of the mastery screen
+//    a. keep showing chords randomly until they are all
+//       shown once, keeping track of the got-its,
+//       and then present a score (default)
+//    b. keep showing chords until they are all indicated
+//       as got-its by the user
+// 4. Set a default limit of all chords on the number
+//    of random chords to be shown before giving a score
+//    but allow a lower number to be set
 
 import SwiftUI
 
