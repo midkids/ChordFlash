@@ -1,15 +1,17 @@
 //
-//  ChordPracticeView.swift
+//  ChordMasteryView.swift
 //  ChordFlash
+//
+//  Created by Myron Snelson on 8/22/26.
 //
 
 import SwiftUI
 
 
-struct ChordPracticeView: View {
+struct ChordMasteryView: View {
     let title: String
     let chords: [Chord]
-    
+
     @State private var currentChordIndex = 0
     @State private var isShowingAnswer = false
 
@@ -44,16 +46,9 @@ struct ChordPracticeView: View {
                 .accessibilityHint("Double tap to flip the card")
 
                 HStack(spacing: 8) {
-                    Button("Previous", systemImage: "chevron.left") {
-                        showPreviousChord()
-                    }
-
-                    Button("Random", systemImage: "shuffle") {
+                    
+                    Button("Next Test Chord", systemImage: "shuffle") {
                         showRandomChord()
-                    }
-
-                    Button("Next", systemImage: "chevron.right") {
-                        showNextChord()
                     }
                 }
                 .font(.caption.weight(.semibold))
@@ -68,16 +63,6 @@ struct ChordPracticeView: View {
             }
             .padding()
         }
-    }
-
-    private func showPreviousChord() {
-        currentChordIndex = currentChordIndex == 0 ? chords.count - 1 : currentChordIndex - 1
-        isShowingAnswer = false
-    }
-
-    private func showNextChord() {
-        currentChordIndex = currentChordIndex == chords.count - 1 ? 0 : currentChordIndex + 1
-        isShowingAnswer = false
     }
 
     private func showRandomChord() {
@@ -95,7 +80,7 @@ struct ChordPracticeView: View {
 
 
 #Preview {
-    ChordPracticeView(
+    ChordMasteryView(
         title: "Preview",
         chords: [
             Chord(

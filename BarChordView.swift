@@ -6,6 +6,8 @@
 import SwiftUI
 
 struct BarChordView: View {
+    let mode: String
+    
     private let barChords = [
         Chord(
             name: "A",
@@ -57,14 +59,20 @@ struct BarChordView: View {
     ]
 
     var body: some View {
-        ChordPracticeView(title: "Bar Chords", chords: barChords)
-            .navigationTitle("ChordFlash")
-            .navigationBarTitleDisplayMode(.inline)
+        if mode == "mastery" {
+            ChordMasteryView(title: "Bar Chords Mastery", chords: barChords)
+                .navigationTitle("ChordFlash")
+                .navigationBarTitleDisplayMode(.inline)
+        } else {
+            ChordPracticeView(title: "Bar Chords Practice", chords: barChords)
+                .navigationTitle("ChordFlash")
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        BarChordView()
+        BarChordView(mode: "practice")
     }
 }

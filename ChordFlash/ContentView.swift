@@ -36,24 +36,43 @@ struct ContentView: View {
                     VStack(spacing: 6) {
                         Text("Menu")
                         //    .font(.largeTitle.bold())
-                            .font(.headline)
+                            .font(.title)
 
                         Text("Choose a chord set")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        Text("and")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        Text("Practice or Mastery Mode")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
 
                     VStack(spacing: 14) {
+                        Text("Open Chords")
+                            .font(.title)
                         NavigationLink {
-                            OpenChordView()
+                            OpenChordView(mode: "practice")
                         } label: {
-                            MenuRow(title: "Open Chords", systemImage: "music.note.list")
+                            MenuRow(title: "Practice Mode", systemImage: "music.note.list")
                         }
-
                         NavigationLink {
-                            BarChordView()
+                            OpenChordView(mode: "mastery")
                         } label: {
-                            MenuRow(title: "Bar Chords", systemImage: "guitars")
+                            MenuRow(title: "Mastery Mode", systemImage: "guitars")
+                        }
+                        Text("Bar Chords")
+                            .font(.title)
+                        NavigationLink {
+                            BarChordView(mode: "practice")
+                        } label: {
+                            MenuRow(title: "Practice Mode", systemImage: "music.note.list")
+                        }
+                        NavigationLink {
+                            BarChordView(mode: "mastery")
+                        } label: {
+                            MenuRow(title: "Mastery Mode", systemImage: "guitars")
                         }
                     }
                     .buttonStyle(.plain)
