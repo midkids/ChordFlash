@@ -12,8 +12,26 @@ struct ChordMasteryView: View {
     let title: String
     let chords: [Chord]
 
-    @State private var currentChordIndex = 0
+    @State private var currentChordIndex: Int
     @State private var isShowingAnswer = false
+    
+    // IMPORTANT: Because we are not setting a default
+    // value for currentChordIndex, we must create a
+    // custom initializer.
+    
+    // This logic will cause the ChordMasteryView to
+    // display the initial chord randomly.
+    
+    // IMPORTANT: Because currentChordIndex is an @State property,
+    // SwiftUI manages it after the view is created.
+    // To set an initial value for an @State property
+    // inside an initializer, you assign to the
+    // backing storage using the underscore form.
+    init(title: String, chords: [Chord]) {
+        self.title = title
+        self.chords = chords
+        _currentChordIndex = State(initialValue: chords.indices.randomElement() ?? 0)
+    }
 
     private var currentChord: Chord {
         chords[currentChordIndex]
