@@ -6,12 +6,13 @@
 //
 // Future Improvements:
 // 1. Create a mastery screen with an option off
-//    ContentView
+//    ContentView - done
 // 2. In Mastery, show random chords but keep track
 //    of the chords shown and allow the
 //    user to indicate whether or not they know a chord
+//    via a "Got it!" button
 //    and then do not show that chord any longer
-//    in that session
+//    in that session if they know it - done
 // 3. Create a settings screen that allows the user to
 //    customize the behavior of the mastery screen
 //    a. keep showing chords randomly until they are all

@@ -14,6 +14,7 @@ struct ChordMasteryView: View {
 
     @State private var currentChordIndex: Int
     @State private var isShowingAnswer = false
+    @State private var masteredChordIndices = Set<Int>()
     
     // IMPORTANT: Because we are not setting a default
     // value for currentChordIndex, we must create a
@@ -37,6 +38,14 @@ struct ChordMasteryView: View {
         chords[currentChordIndex]
     }
 
+    private var availableChordIndices: [Int] {
+        chords.indices.filter { !masteredChordIndices.contains($0) }
+    }
+
+    private var hasMasteredAllChords: Bool {
+        !chords.isEmpty && masteredChordIndices.count == chords.count
+    }
+
     var body: some View {
         ZStack {
             Color(.systemGroupedBackground)
@@ -52,47 +61,77 @@ struct ChordMasteryView: View {
                         .foregroundStyle(.secondary)
                 }
 
-                Button {
-                    withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
-                        isShowingAnswer.toggle()
+                if hasMasteredAllChords {
+                    Text("You've gotten all available chords!")
+                        .font(.title3.weight(.semibold))
+                        .multilineTextAlignment(.center)
+                        .foregroundStyle(.secondary)
+                } else {
+                    Button {
+                        withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+                            isShowingAnswer.toggle()
+                        }
+                    } label: {
+                        FlashCardView(chord: currentChord, isShowingAnswer: isShowingAnswer)
                     }
-                } label: {
-                    FlashCardView(chord: currentChord, isShowingAnswer: isShowingAnswer)
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel(isShowingAnswer ? "Showing tab for \(currentChord.name)" : "Showing chord \(currentChord.name)")
-                .accessibilityHint("Double tap to flip the card")
-
-                HStack(spacing: 8) {
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(isShowingAnswer ? "Showing tab for \(currentChord.name)" : "Showing chord \(currentChord.name)")
+                    .accessibilityHint("Double tap to flip the card")
                     
-                    Button("Next Test Chord", systemImage: "shuffle") {
-                        showRandomChord()
-                    }
-                }
-                .font(.caption.weight(.semibold))
-                .lineLimit(1)
-                .minimumScaleFactor(0.75)
-                .buttonStyle(.borderedProminent)
-                .controlSize(.small)
+                    VStack(spacing: 8) {
 
-                Text("Card \(currentChordIndex + 1) of \(chords.count)")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
+                        VStack(spacing: 6) {
+                            Text("Toggle the switch if you have mastered this chord")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            
+                            Text("Got it!")
+
+                            Toggle(
+                                "Got it!",
+                                isOn: Binding(
+                                    get: { masteredChordIndices.contains(currentChordIndex) },
+                                    set: { isOn in
+                                        if isOn {
+                                            markCurrentChordAsMastered()
+                                        }
+                                    }
+                                )
+                            )
+                            .labelsHidden()
+                            .toggleStyle(.switch)
+                        }
+                        Button("Next Test Chord", systemImage: "shuffle") {
+                            showRandomChord()
+                        }
+                    }
+                    .font(.caption.weight(.semibold))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.small)
+
+                    Text("Card \(currentChordIndex + 1) of \(chords.count)")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
             }
             .padding()
         }
     }
 
     private func showRandomChord() {
-        guard chords.count > 1 else { return }
+        let randomOptions = availableChordIndices.filter { $0 != currentChordIndex }
+        let fallbackOptions = availableChordIndices
 
-        var newIndex = currentChordIndex
-        while newIndex == currentChordIndex {
-            newIndex = Int.random(in: chords.indices)
-        }
+        guard let newIndex = (randomOptions.isEmpty ? fallbackOptions : randomOptions).randomElement() else { return }
 
         currentChordIndex = newIndex
         isShowingAnswer = false
+    }
+
+    private func markCurrentChordAsMastered() {
+        masteredChordIndices.insert(currentChordIndex)
     }
 }
 
