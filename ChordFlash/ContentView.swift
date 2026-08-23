@@ -26,14 +26,25 @@
 
 import SwiftUI
 
+extension Color {
+    static let chordFlashBackground = Color(red: 0.91, green: 0.96, blue: 0.94)
+}
+
 struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.systemGroupedBackground)
+                Color.chordFlashBackground
                     .ignoresSafeArea()
 
-                VStack(spacing: 28) {
+                VStack(spacing: 10) {
+                    Image("ChordFlashHeader")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 220, height: 180)
+                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .accessibilityLabel("Guitar fretboard with chord flashcards")
+
                     VStack(spacing: 6) {
                         Text("Menu")
                         //    .font(.largeTitle.bold())

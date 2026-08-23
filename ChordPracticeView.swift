@@ -19,7 +19,7 @@ struct ChordPracticeView: View {
 
     var body: some View {
         ZStack {
-            Color(.systemGroupedBackground)
+            Color.chordFlashBackground
                 .ignoresSafeArea()
 
             VStack(spacing: 28) {
