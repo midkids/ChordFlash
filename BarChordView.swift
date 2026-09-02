@@ -14,15 +14,59 @@ struct BarChordView: View {
             fingering: ["5", "7", "7", "6", "5", "5"],
             fingerNumbers: ["1", "3", "4", "2", "1", "1"],
             notes: "A major E-based bar chord"
-        ),
-        Chord(
+        ), Chord(
+            name: "Bb",
+            fingering: ["x", "1", "3", "3", "3", "x"],
+            fingerNumbers: ["", "1", "3", "3", "3", ""],
+            notes: "B flat major A-based bar chord"
+        ), Chord(
             name: "Bb",
             fingering: ["6", "8", "8", "7", "6", "6"],
             fingerNumbers: ["1", "3", "4", "2", "1", "1"],
             notes: "B flat major E-based bar chord"
-        ),Chord(
+        ), Chord(
+            name: "B",
+            fingering: ["x", "2", "4", "4", "4", "x"],
+            fingerNumbers: ["", "1", "3", "3", "3", ""],
+            notes: "B major A-based bar chord"
+        ), Chord(
+            name: "B",
+            fingering: ["7", "9", "9", "8", "7", "7"],
+            fingerNumbers: ["1", "3", "4", "2", "1", "1"],
+            notes: "B major E-based bar chord"
+        ), Chord(
+            name: "C",
+            fingering: ["x", "3", "5", "5", "5", "x"],
+            fingerNumbers: ["", "1", "3", "3", "3", ""],
+            notes: "C major A-based bar chord"
+        ), Chord(
+            name: "C#",
+            fingering: ["x", "4", "6", "6", "6", "x"],
+            fingerNumbers: ["", "1", "3", "3", "3", ""],
+            notes: "C# major A-based bar chord"
+        ), Chord(
+            name: "D",
+            fingering: ["x", "5", "7", "7", "7", "x"],
+            fingerNumbers: ["", "1", "3", "3", "3", ""],
+            notes: "D major A-based bar chord"
+        ), Chord(
+            name: "D#",
+            fingering: ["x", "6", "8", "8", "8", "x"],
+            fingerNumbers: ["", "1", "3", "3", "3", ""],
+            notes: "D# major A-based bar chord"
+        ), Chord(
+            name: "E",
+            fingering: ["x", "7", "9", "9", "9", "x"],
+            fingerNumbers: ["", "1", "3", "3", "3", ""],
+            notes: "E major A-based bar chord"
+        ), Chord(
             name: "F",
             fingering: ["1", "3", "3", "2", "1", "1"],
+            fingerNumbers: ["1", "3", "4", "2", "1", "1"],
+            notes: "F major E-based bar chord"
+        ), Chord(
+            name: "F#",
+            fingering: ["2", "4", "4", "3", "2", "2"],
             fingerNumbers: ["1", "3", "4", "2", "1", "1"],
             notes: "F major E-based bar chord"
         ),
@@ -31,6 +75,12 @@ struct BarChordView: View {
             fingering: ["3", "5", "5", "4", "3", "3"],
             fingerNumbers: ["1", "3", "4", "2", "1", "1"],
             notes: "G major E-based bar chord"
+        ),
+        Chord(
+            name: "G#",
+            fingering: ["4", "6", "6", "5", "4", "4"],
+            fingerNumbers: ["1", "3", "4", "2", "1", "1"],
+            notes: "G# major E-based bar chord"
         ),
         Chord(
             name: "Gm",
