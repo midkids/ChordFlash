@@ -32,7 +32,7 @@ struct ChordTabView: View {
                 .font(.caption2.weight(.semibold))
                 .foregroundStyle(.secondary)
 
-                ForEach(Array(zip(strings, zip(chord.fingering, zip(chord.stringNotes, chord.fingerNumbers)))), id: \.0) { stringName, chordInfo in
+                ForEach(Array(zip(strings, zip(chord.frets, zip(chord.stringNotes, chord.fingerNumbers)))), id: \.0) { stringName, chordInfo in
                     let fret = chordInfo.0
                     let note = chordInfo.1.0
                     let finger = chordInfo.1.1
@@ -75,7 +75,7 @@ struct ChordTabView: View {
     ChordTabView(
         chord: Chord(
             name: "A",
-            fingering: ["x", "0", "2", "2", "2", "0"],
+            frets: ["x", "0", "2", "2", "2", "0"],
             fingerNumbers: ["", "", "2", "1", "3", ""],
             notes: "A major"
         )

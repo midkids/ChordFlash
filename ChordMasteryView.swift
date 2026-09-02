@@ -142,7 +142,7 @@ struct ChordMasteryView: View {
         chords: [
             Chord(
                 name: "A",
-                fingering: ["x", "0", "2", "2", "2", "0"],
+                frets: ["x", "0", "2", "2", "2", "0"],
                 fingerNumbers: ["", "", "2", "1", "3", ""],
                 notes: "A major"
             )
