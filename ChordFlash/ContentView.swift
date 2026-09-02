@@ -23,11 +23,37 @@
 // 4. Set a default limit of all chords on the number
 //    of random chords to be shown before giving a score
 //    but allow a lower number to be set
+// 5. Create a search field for both open and bar chords
 
 import SwiftUI
 
 extension Color {
-    static let chordFlashBackground = Color(red: 0.91, green: 0.96, blue: 0.94)
+    init(hex: Int) {
+        self.init(
+            red: Double((hex >> 16) & 0xff) / 255.0,
+            green: Double((hex >> 8) & 0xff) / 255.0,
+            blue: Double(hex & 0xff) / 255.0
+        )
+    }
+
+    static let chordFlashForeground = Color(hex: 0x2B8F8A)
+    static let chordFlashSecondary = Color(hex: 0xE5B854)
+    static let chordFlashBackground = Color(hex: 0xE8F5F0)
+}
+
+extension View {
+    func chordFlashNavigationTitle(_ title: String = "ChordFlash") -> some View {
+        self
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(title)
+                        .font(.title.bold())
+                        .foregroundStyle(Color.chordFlashForeground)
+                }
+            }
+    }
 }
 
 struct ContentView: View {
@@ -49,6 +75,7 @@ struct ContentView: View {
                         Text("Menu")
                         //    .font(.largeTitle.bold())
                             .font(.title)
+                            .foregroundStyle(Color.chordFlashSecondary)
 
                         Text("Choose a chord set")
                             .font(.subheadline)
@@ -64,6 +91,7 @@ struct ContentView: View {
                     VStack(spacing: 14) {
                         Text("Open Chords")
                             .font(.title)
+                            .foregroundStyle(Color.chordFlashSecondary)
                         NavigationLink {
                             OpenChordView(mode: "practice")
                         } label: {
@@ -76,6 +104,7 @@ struct ContentView: View {
                         }
                         Text("Bar Chords")
                             .font(.title)
+                            .foregroundStyle(Color.chordFlashSecondary)
                         NavigationLink {
                             BarChordView(mode: "practice")
                         } label: {
@@ -91,14 +120,7 @@ struct ContentView: View {
                 }
                 .padding()
             }
-            .navigationTitle("ChordFlash")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("ChordFlash")
-                        .font(.title.bold())
-                }
-            }
+            .chordFlashNavigationTitle()
         }
     }
 }

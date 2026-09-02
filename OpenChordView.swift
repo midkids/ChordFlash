@@ -158,12 +158,10 @@ struct OpenChordView: View {
     var body: some View {
         if mode == "mastery" {
             ChordMasteryView(title: "Open Chords Mastery", chords: openChords)
-                .navigationTitle("ChordFlash")
-                .navigationBarTitleDisplayMode(.inline)
+                .chordFlashNavigationTitle()
         } else {
             ChordPracticeView(title: "Open Chords Practice", chords: openChords)
-                .navigationTitle("ChordFlash")
-                .navigationBarTitleDisplayMode(.inline)
+                .chordFlashNavigationTitle()
         }
     }
 }

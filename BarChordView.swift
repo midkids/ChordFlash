@@ -111,12 +111,10 @@ struct BarChordView: View {
     var body: some View {
         if mode == "mastery" {
             ChordMasteryView(title: "Bar Chords Mastery", chords: barChords)
-                .navigationTitle("ChordFlash")
-                .navigationBarTitleDisplayMode(.inline)
+                .chordFlashNavigationTitle()
         } else {
             ChordPracticeView(title: "Bar Chords Practice", chords: barChords)
-                .navigationTitle("ChordFlash")
-                .navigationBarTitleDisplayMode(.inline)
+                .chordFlashNavigationTitle()
         }
     }
 }
