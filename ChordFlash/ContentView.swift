@@ -49,7 +49,7 @@ extension View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text(title)
-                        .font(.title.bold())
+                        .font(.largeTitle.bold())
                         .foregroundStyle(Color.chordFlashForeground)
                 }
             }

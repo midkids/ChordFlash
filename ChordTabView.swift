@@ -15,19 +15,16 @@ struct ChordTabView: View {
             Text(chord.name)
                 .font(.largeTitle.bold())
 
-            VStack(alignment: .leading, spacing: 10) {
-                HStack(spacing: 10) {
+            Grid(alignment: .center, horizontalSpacing: 10, verticalSpacing: 8) {
+                GridRow {
                     Text("String")
-                        .frame(width: 77, alignment: .leading)
-
+                        .gridColumnAlignment(.center)
                     Text("Fret")
-                        .frame(width: 60, alignment: .leading)
-
+                        .gridColumnAlignment(.center)
                     Text("Finger")
-                        .frame(width: 84, alignment: .leading)
-
-                    Text("Note Played")
-                        .frame(width: 48, alignment: .leading)
+                        .gridColumnAlignment(.center)
+                    Text("Note")
+                        .gridColumnAlignment(.center)
                 }
                 .font(.caption2.weight(.semibold))
                 .foregroundStyle(.secondary)
@@ -37,27 +34,24 @@ struct ChordTabView: View {
                     let note = chordInfo.1.0
                     let finger = chordInfo.1.1
 
-                    HStack(spacing: 10) {
+                    GridRow {
                         Text(stringName)
                             .font(.headline.monospaced())
-                            .frame(width: 42, alignment: .leading)
 
                         Text("|--\(fret)--|")
                             .font(.title2.monospaced())
 
-                        Text(finger.isEmpty ? "" : "finger \(finger)")
+                        Text(finger)
                             .font(.headline)
                             .lineLimit(1)
-                            .minimumScaleFactor(0.8)
-                            .frame(minWidth: 110, alignment: .leading)
 
                         Text(note)
                             .font(.headline.weight(.semibold))
                             .lineLimit(1)
-                            .frame(width: 32, alignment: .leading)
                     }
                 }
             }
+            .frame(maxWidth: .infinity)
             .padding(.vertical, 8)
 
             Text("low E to high e")
