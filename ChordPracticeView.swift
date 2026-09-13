@@ -25,7 +25,7 @@ struct ChordPracticeView: View {
             VStack(spacing: 28) {
                 VStack(spacing: 6) {
                     Text(title)
-                        .font(.largeTitle.bold())
+                        .font(.title)
                         .foregroundStyle(Color.chordFlashSecondary)
 
                     Text("Tap the card to flip it")
