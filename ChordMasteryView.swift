@@ -142,6 +142,7 @@ struct ChordMasteryView: View {
         title: "Preview",
         chords: [
             Chord(
+                type: .open,
                 name: "A",
                 frets: ["x", "0", "2", "2", "2", "0"],
                 fingerNumbers: ["", "", "2", "1", "3", ""],

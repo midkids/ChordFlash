@@ -93,12 +93,12 @@ struct ContentView: View {
                             .font(.title)
                             .foregroundStyle(Color.chordFlashSecondary)
                         NavigationLink {
-                            OpenChordView(mode: "practice")
+                            ChordSetView(chordType: .open, mode: "practice")
                         } label: {
                             MenuRow(title: "Practice Mode", systemImage: "music.note.list")
                         }
                         NavigationLink {
-                            OpenChordView(mode: "mastery")
+                            ChordSetView(chordType: .open, mode: "mastery")
                         } label: {
                             MenuRow(title: "Mastery Mode", systemImage: "guitars")
                         }
@@ -106,12 +106,12 @@ struct ContentView: View {
                             .font(.title)
                             .foregroundStyle(Color.chordFlashSecondary)
                         NavigationLink {
-                            BarChordView(mode: "practice")
+                            ChordSetView(chordType: .bar, mode: "practice")
                         } label: {
                             MenuRow(title: "Practice Mode", systemImage: "music.note.list")
                         }
                         NavigationLink {
-                            BarChordView(mode: "mastery")
+                            ChordSetView(chordType: .bar, mode: "mastery")
                         } label: {
                             MenuRow(title: "Mastery Mode", systemImage: "guitars")
                         }

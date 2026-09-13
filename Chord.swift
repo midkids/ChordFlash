@@ -5,15 +5,31 @@
 
 import Foundation
 
+enum ChordType {
+    case open
+    case bar
+
+    var title: String {
+        switch self {
+        case .open:
+            "Open Chords"
+        case .bar:
+            "Bar Chords"
+        }
+    }
+}
+
 struct Chord: Identifiable {
     let id = UUID()
+    let type: ChordType
     let name: String
     let frets: [String]
     let fingerNumbers: [String]
     let notes: String
     let stringNotes: [String]
 
-    init(name: String, frets: [String], fingerNumbers: [String], notes: String) {
+    init(type: ChordType, name: String, frets: [String], fingerNumbers: [String], notes: String) {
+        self.type = type
         self.name = name
         self.frets = frets
         self.fingerNumbers = fingerNumbers

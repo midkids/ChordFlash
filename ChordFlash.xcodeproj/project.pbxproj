@@ -14,6 +14,7 @@
 		2CB47307302EAF6400EF1161 /* ChordPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB47306302EAF6400EF1161 /* ChordPracticeView.swift */; };
 		2CB47309302EAF8D00EF1161 /* OpenChordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB47308302EAF8D00EF1161 /* OpenChordView.swift */; };
 		2CB4730B302EAF9400EF1161 /* BarChordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4730A302EAF9400EF1161 /* BarChordView.swift */; };
+		2CCF86CD305706CD00D8616A /* ChordSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCF86CC305706CD00D8616A /* ChordSetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2CB47306302EAF6400EF1161 /* ChordPracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordPracticeView.swift; sourceTree = "<group>"; };
 		2CB47308302EAF8D00EF1161 /* OpenChordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChordView.swift; sourceTree = "<group>"; };
 		2CB4730A302EAF9400EF1161 /* BarChordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChordView.swift; sourceTree = "<group>"; };
+		2CCF86CC305706CD00D8616A /* ChordSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordSetView.swift; sourceTree = "<group>"; };
 		2CF6A25A301FE74700C08254 /* ChordFlash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordFlash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 				2C4C96B7303229D70000950F /* FlashCardView.swift */,
 				2C4C96B9303229E80000950F /* ChordTabView.swift */,
 				2C3B7913303A313F00FF27DA /* Chord.swift */,
+				2CCF86CC305706CD00D8616A /* ChordSetView.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +153,7 @@
 				2C4C96B8303229D70000950F /* FlashCardView.swift in Sources */,
 				2C4C96BA303229E80000950F /* ChordTabView.swift in Sources */,
 				2C3B7914303A313F00FF27DA /* Chord.swift in Sources */,
+				2CCF86CD305706CD00D8616A /* ChordSetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
