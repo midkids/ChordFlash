@@ -58,6 +58,13 @@ extension ChordLibrary {
         ),
         Chord(
             type: .bar,
+            name: "C#m",
+            frets: ["x", "4", "6", "6", "5", "4"],
+            fingerNumbers: ["", "1", "3", "4", "2", "1"],
+            notes: "C#m minor A-based bar chord"
+        ),
+        Chord(
+            type: .bar,
             name: "D",
             frets: ["x", "5", "7", "7", "7", "x"],
             fingerNumbers: ["", "1", "3", "3", "3", ""],
@@ -104,6 +111,13 @@ extension ChordLibrary {
             frets: ["4", "6", "6", "5", "4", "4"],
             fingerNumbers: ["1", "3", "4", "2", "1", "1"],
             notes: "G# major E-based bar chord"
+        ),
+        Chord(
+            type: .bar,
+            name: "G#m",
+            frets: ["4", "6", "6", "4", "4", "4"],
+            fingerNumbers: ["1", "3", "4", "1", "1", "1"],
+            notes: "G#m minor E-based bar chord"
         ),
         Chord(
             type: .bar,
