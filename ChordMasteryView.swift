@@ -86,21 +86,26 @@ struct ChordMasteryView: View {
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                             
-                            Text("Got it!")
-
-                            Toggle(
-                                "Got it!",
-                                isOn: Binding(
-                                    get: { masteredChordIndices.contains(currentChordIndex) },
-                                    set: { isOn in
-                                        if isOn {
-                                            markCurrentChordAsMastered()
-                                        }
+                            Toggle(isOn: Binding(
+                                get: { masteredChordIndices.contains(currentChordIndex) },
+                                set: { isOn in
+                                    if isOn {
+                                        markCurrentChordAsMastered()
                                     }
-                                )
-                            )
-                            .labelsHidden()
-                            .toggleStyle(.switch)
+                                }
+                            )) {
+                                Text("Got it!")
+                                    .foregroundStyle(Color.chordFlashSecondary)
+                            }
+                            .toggleStyle(CustomSwitchToggleStyle())
+                            .fixedSize()
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(.black.opacity(0.08), in: Capsule())
+                            .overlay {
+                                Capsule()
+                                    .stroke(.black.opacity(0.25), lineWidth: 1)
+                            }
                         }
                         Button("Next Test Chord", systemImage: "shuffle") {
                             showRandomChord()
@@ -133,6 +138,31 @@ struct ChordMasteryView: View {
 
     private func markCurrentChordAsMastered() {
         masteredChordIndices.insert(currentChordIndex)
+    }
+}
+
+private struct CustomSwitchToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        Button {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                configuration.isOn.toggle()
+            }
+        } label: {
+            HStack(spacing: 10) {
+                configuration.label
+
+                Capsule()
+                    .fill(configuration.isOn ? Color.green : Color.chordFlashSecondary)
+                    .frame(width: 52, height: 32)
+                    .overlay(alignment: configuration.isOn ? .trailing : .leading) {
+                        Circle()
+                            .fill(.white)
+                            .padding(3)
+                            .shadow(color: .black.opacity(0.25), radius: 1, y: 1)
+                    }
+            }
+        }
+        .buttonStyle(.plain)
     }
 }
 

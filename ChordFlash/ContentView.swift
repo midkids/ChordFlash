@@ -5,7 +5,7 @@
 //  Created by Myron Snelson on 8/2/26.
 //
 // Future Improvements:
-// 1. Create a mastery screen with an option off
+// 1. Create a screen with an option off
 //    ContentView - done
 // 2. In Mastery, show random chords but keep track
 //    of the chords shown and allow the
