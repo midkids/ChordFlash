@@ -95,7 +95,7 @@ struct ChordMasteryView: View {
                                 }
                             )) {
                                 Text("Got it!")
-                                    .foregroundStyle(Color.chordFlashSecondary)
+                                    .foregroundStyle(Color.chordFlashForeground)
                             }
                             .toggleStyle(CustomSwitchToggleStyle())
                             .fixedSize()
